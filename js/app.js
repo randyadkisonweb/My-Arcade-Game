@@ -9,7 +9,7 @@ var allEnemies =[enemy1, enemy2, enemy3];
 
 
 
-var Enemy = function (){
+var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -38,37 +38,46 @@ Enemy.prototype.render = function() {
 class Player {
     constructor() {
 
-            this.sprite = 'images/char-boy.png';
-            this.x = 200;
-            this.y = 400;
-        }  
+        this.sprite = 'images/char-boy.png';
+
+        this.step = 101;
+        this.jump = 83;
+        this.startX = this.step * 2;
+        // Order of operations important
+        this.startY = (this.jump * 5) - 20;
+        this.x = this.startX;
+        this.y = this.startY;
+
+
+
+    }
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
-        }
-        
+    }
+
     // Changeing player direction 
 
     handleInput(input) {
-        switch(input) {
+        switch (input) {
             case 'left':
-                this.row -= 10;
+                this.x -= this.step;
                 break;
             case 'up':
-                this.column -= 11;
+                this.y -= this.jump;
                 break;
             case 'right':
-                this.row += 1;
+                this.x += this.step;
                 break;
             case 'down':
-                this.column += 1;
+                this.y += this.jump;
                 break;
         }
-    
+
     }
-        
- 
+
+
 }
 const player = new Player();
 // Now instantiate your objects.
