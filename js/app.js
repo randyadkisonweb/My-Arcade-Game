@@ -38,12 +38,12 @@ Enemy.prototype.render = function() {
 class Player {
     constructor() {
 
+        // Order of this.variables important in constructor
+        // Also be mindful of order of operations
         this.sprite = 'images/char-boy.png';
-
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        // Order of operations important
         this.startY = (this.jump * 5) - 20;
         this.x = this.startX;
         this.y = this.startY;
@@ -57,26 +57,34 @@ class Player {
 
     }
 
-    // Changeing player direction 
+    // Changeing player direction.
+    // Conditionals added to the switch to keep player on board.
 
     handleInput(input) {
         switch (input) {
             case 'left':
-                this.x -= this.step;
+                if (this.x > 0) {
+                    this.x -= this.step;
+                }
                 break;
             case 'up':
-                this.y -= this.jump;
+                if (this.y > 0) {
+                    this.y -= this.jump;
+                }
                 break;
             case 'right':
-                this.x += this.step;
+                if (this.x < this.step * 4) {
+                    this.x += this.step;
+                }
                 break;
             case 'down':
-                this.y += this.jump;
+                if (this.y < this.jump * 4) {
+                    this.y += this.jump;
+                }
                 break;
         }
 
     }
-
 
 }
 const player = new Player();
