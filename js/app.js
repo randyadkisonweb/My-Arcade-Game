@@ -1,10 +1,8 @@
 // Enemies our player must avoid
 
-/* var enemy1 = new Enemy();
-var enemy2 = new Enemy();
-var enemy3 = new Enemy();
-var allEnemies =[enemy1, enemy2, enemy3];
- */
+
+
+
 
 
 
@@ -16,6 +14,8 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = 0;
+    this.y = 0;
 };
 
 // Update the enemy's position, required method for games
@@ -88,6 +88,14 @@ class Player {
 
 }
 const player = new Player();
+var enemy1 = new Enemy();
+/* var enemy2 = new Enemy();
+var enemy3 = new Enemy() */
+;
+var allEnemies = [];
+allEnemies.push(enemy1);
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
