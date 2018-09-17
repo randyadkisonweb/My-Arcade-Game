@@ -95,6 +95,8 @@ var allEnemies = [];
 allEnemies.push(enemy1);
 
 
+
+const player = new Player();
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
